@@ -1,5 +1,5 @@
-'use client'
-import { usePathname } from 'next/navigation'
+'use client';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
 import '../app/styles.css';
@@ -9,9 +9,9 @@ import { HiOutlineViewGrid } from 'react-icons/hi';
 import { GoPlus } from 'react-icons/go';
 import { IoMapOutline } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
-import { VscGraph } from "react-icons/vsc";
-import { FaUserAlt } from "react-icons/fa";
-import { GrUserWorker } from "react-icons/gr";
+import { VscGraph } from 'react-icons/vsc';
+import { FaUserAlt } from 'react-icons/fa';
+import { GrUserWorker } from 'react-icons/gr';
 
 export default function Sidebar() {
   const router = useRouter();
@@ -28,26 +28,23 @@ export default function Sidebar() {
 
   const hyperlink = usePathname();
 
-
   const linkClass = `w-full px-4 text-lg py-2 rounded-lg 
   transition-colors duration-200 transform text-center 
    my-2  flex items-end justify-between hover:bg-blue-100 `;
 
-  const link  = `w-full px-4 text-lg py-2 rounded-lg 
+  const link = `w-full px-4 text-lg py-2 rounded-lg 
   transition-colors duration-200 transform text-center 
    my-2  flex items-end justify-between text-white
-  bg-blue-500 `
-  
-  
-  
-  const chosen1 = (hyperlink === '/dashboard/view' ? link : linkClass);
-  const chosen2 = (hyperlink === '/dashboard/add' ? link : linkClass);
-  const chosen3 = (hyperlink === '/dashboard/search' ? link : linkClass);
-  const chosen4 = (hyperlink === '/dashboard/map' ? link : linkClass);
-  const chosen5 = (hyperlink === '/dashboard/analysis' ? link : linkClass);
-  const chosen6 = (hyperlink === '/dashboard/dumper' ? link : linkClass);
-  const chosen7 = (hyperlink === '/dashboard/operator-analysis' ? link : linkClass);
+  bg-blue-500 `;
 
+  const chosen1 = hyperlink === '/dashboard/view' ? link : linkClass;
+  const chosen2 = hyperlink === '/dashboard/add' ? link : linkClass;
+  const chosen3 = hyperlink === '/dashboard/search' ? link : linkClass;
+  const chosen4 = hyperlink === '/dashboard/map' ? link : linkClass;
+  const chosen5 = hyperlink === '/dashboard/analysis' ? link : linkClass;
+  const chosen6 = hyperlink === '/dashboard/dumper' ? link : linkClass;
+  const chosen7 =
+    hyperlink === '/dashboard/operator-analysis' ? link : linkClass;
 
   return (
     <div>
@@ -74,10 +71,6 @@ export default function Sidebar() {
               Search a record
             </Link>
           </div>
-          <Link href={'/dashboard/map'} className={chosen4}>
-            <IoMapOutline className="w-6 h-6" />
-            Map
-          </Link>
           <Link href={'/dashboard/operator-analysis'} className={chosen7}>
             <VscGraph className="w-6 h-6" />
             Operator Analysis
